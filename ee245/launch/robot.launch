@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot" default="cf1"/>
+  <arg name="uri" default="$(eval 'radio://0/100/2M/E7E7E7E70' + arg('robot')[-1] )" /> <!-- less than 10 -->
+  <arg name="frame" default="$(eval '/optitrack/' + arg('robot') + '/pose' )" />
+
+  <include file="$(find crazyflie_driver)/launch/crazyflie_server.launch"/>
+
+	<include file="$(find ee245)/config/optitrack.xml"/>
+
+  <group ns="$(arg robot)">
+    <include file="$(find crazyflie_driver)/launch/crazyflie_add.launch">
+      <arg name="uri" value="$(arg uri)" />
+      <arg name="tf_prefix" value="$(arg robot)" />
+      <arg name="enable_logging" value="False" />
+    </include>
+
+    <node name="pose" pkg="ee245" type="publish_external_position_optitrack.py" output="screen">
+      <param name="topic" value="$(arg frame)" />
+    </node>
+  </group>
+  
+
+</launch>

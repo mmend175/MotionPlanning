@@ -1,0 +1,22 @@
+#
+# Definition of all trackable objects
+# Identifier corresponds to Trackable ID set in Tracking Tools
+#
+rigid_bodies:
+    '1':
+        pose: cf1/pose
+        child_frame_id: cf1/base_link
+        parent_frame_id: /world
+    '2':
+        pose: cf2/pose
+        child_frame_id: cf2/base_link
+        parent_frame_id: /world
+    '3':
+        pose: cf3/pose
+        child_frame_id: cf3/base_link
+        parent_frame_id: /world
+
+optitrack_config:
+        multicast_address: 239.255.42.99
+        command_port: 1510
+        data_port: 1511
