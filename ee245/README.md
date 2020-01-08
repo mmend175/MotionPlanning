@@ -1,5 +1,4 @@
-# ee245
-A repository for all material relevant to EE245 labs.
+
 
 ## Installation
 - `sudo apt install git swig libpython-dev python-numpy python-yaml python-matplotlib gcc-arm-none-eabi libpcl-dev libusb-1.0-0-dev sdcc` install dependency
